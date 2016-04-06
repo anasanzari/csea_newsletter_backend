@@ -1,0 +1,25 @@
+@font-face {
+  font-family: thefont;
+  src: url("../font/Gravity-Book.otf"); }
+* {
+  font-family: thefont;
+  font-weight: 400; }
+
+.maingradient, .login {
+  background: #e53935;
+  background: -webkit-linear-gradient(to left, #e53935, #e35d5b);
+  background: linear-gradient(to left, #e53935, #e35d5b); }
+
+.center {
+  text-align: center; }
+
+.login {
+  padding-top: 100px;
+  min-height: 100vh; }
+
+.admin {
+  padding-bottom: 50px; }
+  .admin .editor {
+    border: 1px dashed #000; }
+
+/*# sourceMappingURL=backendstyles.css.map */
