@@ -15,6 +15,7 @@
                        <li><a href="{{url('dashboard/editions')}}" class="waves-effect waves-light">Editions<span class="sr-only">(current)</span></a></li>
                        <li><a href="{{url('dashboard/photos')}}" class="waves-effect waves-light">Photos</a></li>
                        <li><a href="{{url('dashboard/password')}}" class="waves-effect waves-light">Password</a></li>
+                       <li><a href="{{url('auth/logout')}}" class="waves-effect waves-light">Log Out</a></li>
                    </ul>
 
                </div>
