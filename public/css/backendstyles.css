@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: thefont;
   src: url("../font/Gravity-Book.otf"); }
@@ -21,5 +22,113 @@
   padding-bottom: 50px; }
   .admin .editor {
     border: 1px dashed #000; }
+
+/*************************  Markit Up *********************/
+.fa-markitbtn1:before {
+  content: "1"; }
+
+.fa-markitbtn2:before {
+  content: "2"; }
+
+.fa-markitbtn3:before {
+  content: "3"; }
+
+.fa-markitbtn4:before {
+  content: "4"; }
+
+.fa-markitbtn5:before {
+  content: ""; }
+
+.fa-markitbtn6:before {
+  content: ""; }
+
+.fa-markitbtn7:before {
+  content: ""; }
+
+.fa-markitbtn8:before {
+  content: ""; }
+
+.fa-markitbtn9:before {
+  content: ""; }
+
+.fa-markitbtn10:before {
+  content: ""; }
+
+.fa-markitbtn11:before {
+  content: ""; }
+
+.fa-markitbtn12:before {
+  content: ""; }
+
+.fa-markitbtn13:before {
+  content: ""; }
+
+.fa-markitbtn14:before {
+  content: ""; }
+
+.fa-markitbtn15:before {
+  content: ""; }
+
+.markItUp * {
+  margin: 0px;
+  padding: 0px;
+  outline: none; }
+
+.markItUp a:link,
+.markItUp a:visited {
+  color: #000;
+  text-decoration: none; }
+
+.markItUp {
+  margin: 5px 0 5px 0;
+  border: 1px solid #FFFFF; }
+  .markItUp .markItUpContainer {
+    padding: 5px 5px 2px 5px;
+    font: 11px Verdana, Arial, Helvetica, sans-serif; }
+    .markItUp .markItUpContainer .markItUpHeader .btn {
+      font-size: 16px;
+      width: 50px;
+      margin-right: 2px; }
+    .markItUp .markItUpContainer .markItUpEditor {
+      padding: 3px;
+      line-height: 18px;
+      overflow: auto; }
+    .markItUp .markItUpContainer .markItUpFooter {
+      width: 100%;
+      cursor: n-resize; }
+
+.markItUpPreviewFrame {
+  overflow: auto;
+  height: 375px;
+  margin: 5px 0;
+  margin-top: 44px;
+  border: none;
+  width: 100%; }
+
+.markItUpResizeHandle {
+  overflow: hidden;
+  width: 22px;
+  height: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url(images/handle.png);
+  cursor: n-resize; }
+
+/***************************************************************************************/
+/* first row of buttons */
+.markItUpHeader {
+  margin-bottom: 5px; }
+
+.markItUpHeader ul li {
+  list-style: none;
+  display: inline-block; }
+
+.markItUpHeader ul a {
+  display: block;
+  background-repeat: no-repeat;
+  padding: 5px;
+  margin: 0px; }
+
+/****************************/
 
 /*# sourceMappingURL=backendstyles.css.map */

@@ -30,32 +30,60 @@
               <label>Article Number</label>
             </div>
 
-            <input type="hidden" name="content" ng-value="htmlContent" />
+            <div class="input-field col-md-12">
+              <textarea id="art" rows="15" class="form-control" name="content" ng-model="content">
 
-
-            <!--div class="input-field col-md-12">
-              <textarea name="content" class="materialize-textarea"></textarea>
-              <label>Html Content</label>
-            </div-->
-
-        </div>
-        <div class="col-md-12">
-
-            <h4>Add Content:</h4>
-            <div class="bb-custom-wrapper">
-              <div id="bb-bookblock" class="bb-bookblock">
-                <div text-angular class="editor" ng-model="htmlContent" name="demo-editor" ta-text-editor-class="border-around" ta-html-editor-class="border-around"></div>
-              </div>
+              </textarea>
+            </div>
+            <div class="center">
+              {!! Form::submit('Create',['class' => 'btn']) !!}
             </div>
 
-          <div class="center">
-            {!! Form::submit('Create',['class' => 'btn']) !!}
-          </div>
           {!! form::close() !!}
 
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <p>Preview:</p>
+
+          <div class="bb-custom-wrapper">
+            <div id="bb-bookblock" class="bb-bookblock"  ng-bind-html="content | to_trusted">
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
   </div>
+
+<div style="display:none" id="template">
+  <div class="bb-item" id="item4">
+    <div class="pagenum"></div>
+    <div class="content">
+      <div class="scroller">
+        <div class="light">
+
+          <h2>Title</h2>
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <h3> A sample 2 Column Design </h3>
+              </div>
+              <div class="col-md-6">
+                <h4>Second Column</h4>
+              </div>
+            </div>
+          </div><!--containerfluid-->
+
+        </div><!--light div-->
+      </div><!--scroller-->
+    </div><!--content -->
+  </div><!--bb-item-->
+</div>
 
 
 @endsection
@@ -63,18 +91,28 @@
 
 @section('script')
 
-	{!! Html::script('js/angular.min.js') !!}
+{!! Html::script('js/markitup/jquery.markitup.js') !!}
+{!! Html::script('js/markitup/settings.js') !!}
+<script>
+  $('#art').markItUp(mySettings);
+</script>
+
+  {!! Html::script('js/angular.min.js') !!}
   {!! Html::script('js/angular-resource.min.js') !!}
-  {!! Html::script('js/textAngular-rangy.min.js') !!}
-  {!! Html::script('js/textAngular-sanitize.min.js') !!}
-  {!! Html::script('js/textAngular.min.js') !!}
+
 
 <script>
 
-  angular.module("TextAngular", ['textAngular'])
+  angular.module("TextAngular", [])
 		.controller("AppController", function($scope){
-      $scope.htmlContent = "hi";
-    });
+      var ele = angular.element("#template");
+      console.log(ele.html());
+      $scope.content = ele.html();
+    }).filter('to_trusted', ['$sce', function($sce){
+        return function(text) {
+            return $sce.trustAsHtml(text);
+        };
+    }]);;
 
 </script>
 @endsection

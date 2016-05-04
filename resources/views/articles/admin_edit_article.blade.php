@@ -30,48 +30,55 @@
               <label>Article Number</label>
             </div>
 
-            <input type="hidden" name="content" ng-value="htmlContent" />
+            <div class="input-field col-md-12">
+              <textarea id="art" rows="15" class="form-control" name="content" ng-model="content">
 
-
-            <!--div class="input-field col-md-12">
-              <textarea name="content" class="materialize-textarea"></textarea>
-              <label>Html Content</label>
-            </div-->
-
-        </div>
-        <div class="col-md-12">
-
-            <h4>Add Content:</h4>
-            <div class="bb-custom-wrapper">
-              <div id="bb-bookblock" class="bb-bookblock">
-                <div text-angular class="editor" ng-model="htmlContent" name="demo-editor" ta-text-editor-class="border-around" ta-html-editor-class="border-around"></div>
-              </div>
+              </textarea>
             </div>
 
-          <div class="center">
-            {!! Form::submit('Save',['class' => 'btn']) !!}
+            <div class="center">
+              {!! Form::submit('Save',['class' => 'btn']) !!}
+            </div>
+            {!! form::close() !!}
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <p>Preview:</p>
+
+          <div class="bb-custom-wrapper">
+            <div id="bb-bookblock" class="bb-bookblock"  ng-bind-html="content | to_trusted">
+
+            </div>
           </div>
-          {!! form::close() !!}
 
         </div>
       </div>
   </div>
 
+</div>
+
+</div>
 
 @endsection
 
 
 @section('script')
 
+{!! Html::script('js/markitup/jquery.markitup.js') !!}
+{!! Html::script('js/markitup/settings.js') !!}
+<script>
+  $('#art').markItUp(mySettings);
+</script>
+
 	{!! Html::script('js/angular.min.js') !!}
   {!! Html::script('js/angular-resource.min.js') !!}
-  {!! Html::script('js/textAngular-rangy.min.js') !!}
-  {!! Html::script('js/textAngular-sanitize.min.js') !!}
-  {!! Html::script('js/textAngular.min.js') !!}
 
 <script>
 
-  angular.module("TextAngular", ['textAngular','ngResource'])
+  angular.module("TextAngular", ['ngResource'])
   .constant("CSRF_TOKEN", '{!! csrf_token() !!}')
   .factory('ArticleResource',function ($resource) {
       return $resource("{{url("api/articles/".$id)}}", {},
@@ -81,11 +88,17 @@
   })
 		.controller("AppController", function($scope,ArticleResource){
       ArticleResource.get({}, function (response) {
-        $scope.htmlContent = response.content;
+        $scope.content = response.content;
         console.log(response);
       });
 
-    });
+    })
+
+    .filter('to_trusted', ['$sce', function($sce){
+        return function(text) {
+            return $sce.trustAsHtml(text);
+        };
+    }]);
 
 </script>
 @endsection

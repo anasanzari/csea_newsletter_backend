@@ -1,0 +1,139 @@
+
+@import "../fa/variables";
+
+/*************************  Markit Up *********************/
+
+.fa-markitbtn1:before{
+content: $fa-var-header+"1";
+}
+
+.fa-markitbtn2:before{
+	content: $fa-var-header+"2";
+}
+.fa-markitbtn3:before{
+	content: $fa-var-header+"3";
+}
+.fa-markitbtn4:before{
+	content: $fa-var-header+"4";
+}
+.fa-markitbtn5:before{
+	content: $fa-var-paragraph;
+}
+
+.fa-markitbtn6:before{
+	content: $fa-var-bold;
+}
+.fa-markitbtn7:before{
+	content: $fa-var-italic;
+}
+
+.fa-markitbtn8:before{
+	content: $fa-var-superscript;
+}
+
+.fa-markitbtn9:before{
+	content: $fa-var-subscript;
+}
+
+.fa-markitbtn10:before{
+	content: $fa-var-list-ul;
+}
+
+.fa-markitbtn11:before{
+	content: $fa-var-list-ol;
+}
+
+.fa-markitbtn12:before{
+	content:$fa-var-picture-o;
+}
+
+.fa-markitbtn13:before{
+	content:$fa-var-link;
+}
+
+.fa-markitbtn14:before{
+	content:$fa-var-refresh;
+}
+
+.fa-markitbtn15:before{
+	content: $fa-var-check;
+}
+
+
+
+.markItUp * {
+	margin:0px; padding:0px;
+	outline:none;
+}
+.markItUp a:link,
+.markItUp a:visited {
+	color:#000;
+	text-decoration:none;
+}
+.markItUp  {
+	margin:5px 0 5px 0;
+	border:1px solid #FFFFF;
+
+  .markItUpContainer  {
+
+  	padding:5px 5px 2px 5px;
+  	font:11px Verdana, Arial, Helvetica, sans-serif;
+
+    .markItUpHeader{
+      .btn{
+        font-size: 16px;
+        width:50px;
+        margin-right: 2px;
+      }
+
+    }
+
+    .markItUpEditor {
+    	padding:3px;
+    	line-height:18px;
+    	overflow:auto;
+    }
+
+    .markItUpFooter {
+    	width:100%;
+    	cursor:n-resize;
+    }
+  }
+}
+
+.markItUpPreviewFrame	{
+	overflow:auto;
+	height: 375px;
+	margin:5px 0;
+        margin-top: 44px;
+	border: none;
+	width: 100%;
+}
+
+.markItUpResizeHandle {
+	overflow:hidden;
+	width:22px; height:5px;
+	margin-left:auto;
+	margin-right:auto;
+	background-image:url(images/handle.png);
+	cursor:n-resize;
+}
+/***************************************************************************************/
+/* first row of buttons */
+.markItUpHeader{
+	margin-bottom: 5px;
+}
+.markItUpHeader ul li	{
+	list-style:none;
+	display: inline-block;
+}
+
+
+.markItUpHeader ul a {
+	display:block;
+	background-repeat:no-repeat;
+	padding:5px;
+	margin:0px;
+}
+
+/****************************/
